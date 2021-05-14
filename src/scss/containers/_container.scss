@@ -1,0 +1,30 @@
+.container {
+  @include make-spacer(mx, auto);
+
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+
+    display: grid;
+    grid-template-columns: 296px auto;
+    grid-gap: 22px;
+    max-width: var(--container-width);
+  }
+
+  // Modifier
+
+  &.content {
+    @include make-spacer(px, 3);
+    @include make-spacer(px, 4, sm);
+    @include make-spacer(px, 8, md);
+    @include make-spacer(px, 0, lg);
+    @include make-spacer(my, 2);
+    @include make-spacer(my, 10, md);
+  }
+
+  &.fluid {
+    @include media-breakpoint-up(md) {
+      max-width: none;
+    }
+  }
+}

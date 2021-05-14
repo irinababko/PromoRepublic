@@ -1,0 +1,27 @@
+mixin card()
+  each item in cardList
+    a.card(href=item.link)
+      .card__item
+        picture
+          img.card__img(src=item.src)
+        .card__save
+          +icon("ideas")
+          +icon("ideas-color", modClass='icon-hover')
+        .card__number=item.number
+        .card__data=item.data
+        .card__button
+          button.button.button--primary use
+      .card__info
+        .card__title
+          .card__icon
+            +icon(item.icon)
+          .card__text=item.title
+        .card__tags
+          .tag=item.tags
+          .tag__count +3
+          ul.tag__list
+            li.tag.tag__item=item.tag1
+            li.tag.tag__item=item.tag2
+            li.tag.tag__item=item.tag3
+        .card__subtitle=item.subtitle
+

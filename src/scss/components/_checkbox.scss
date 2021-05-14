@@ -1,0 +1,76 @@
+.checkbox {
+  @include font-size(13px, 16px);
+  @include make-spacer(pl, 11);
+  @include make-spacer(mb, 3);
+  @include make-spacer(mb, 3, xxs);
+  @include make-spacer(mb, 0, xs);
+  @include make-spacer(mb, 5, sm);
+  @include make-spacer(mr, 3);
+
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+
+  &:last-child {
+    @include make-spacer(mb, 3, xxs);
+    @include make-spacer(mb, 0, xs);
+    @include make-spacer(mr, 0);
+  }
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked {
+
+      + .checkbox {
+
+        &__text {
+          background-color: var(--blue-primary);
+          border: none;
+
+          &:after {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  &__text {
+    @include size(16px);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: 3px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 6px;
+      top: 3px;
+      width: 3px;
+      height: 6px;
+      border: solid white;
+      border-width: 0 1px 1px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  &__icon {
+    @include font-size(16px);
+
+    position: absolute;
+    top: 0;
+    left: 24px;
+  }
+}
+

@@ -1,0 +1,212 @@
+.card {
+  @include flex(space-between, inherit, column);
+  @include transition;
+
+  border-radius: rem(4px);
+  background-color: var(--black-primary);
+
+  &:hover {
+    .card {
+      &__img {
+        @include transition;
+
+        opacity: 0.2;
+      }
+
+      &__button {
+        @include transition;
+
+        opacity: 1;
+        transform: translateY(-12px);
+      }
+
+      &__save {
+        @include transition;
+
+        opacity: 1;
+
+        .icon {
+          display: block;
+          fill: var(--white);
+
+          &.icon-hover {
+            display: none;
+          }
+        }
+
+        &:hover {
+          .icon {
+            display: none;
+
+            &.icon-hover {
+              display: block;
+              fill: var(--green-primary);
+            }
+          }
+        }
+      }
+
+      &__number {
+        @include transition;
+
+        opacity: 1;
+        transform: translateY(-70px);
+        color: var(--white);
+        z-index: 10;
+      }
+
+      &__data {
+        @include transition;
+
+        opacity: 1;
+        transform: translateY(-56px);
+        color: var(--white);
+        z-index: 10;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    max-width: rem(216px);
+  }
+
+  &__item {
+    position: relative;
+    text-align: center;
+
+    height: 100%;
+  }
+
+  &__button {
+    @include make-spacer(px, 4);
+    @include make-spacer(py, 0);
+
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+  }
+
+  &__save {
+    @include font-size(24px);
+
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    opacity: 0;
+  }
+
+  &__number {
+    @include font-size(16px);
+
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    opacity: 0;
+    font-weight: var(--extra-bold);
+  }
+
+  &__data {
+    @include font-size(10px);
+
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    opacity: 0;
+  }
+
+  &__info {
+    @include make-spacer(p, 4);
+
+    background-color: var(--white);
+    border-radius: 0 0 4px 4px;
+
+    &:last-child {
+      @include make-spacer(mb, 0);
+    }
+  }
+
+  &__img {
+    @include size(100%, auto);
+
+    object-fit: cover;
+    display: block;
+    position: relative;
+    background-color: var(--black-primary);
+
+    height: 100%;
+  }
+
+  &__title {
+    @include flex($align-items: center);
+    @include font-size(13px);
+    @include make-spacer(mb, 2);
+
+    font-weight: var(--extra-bold);
+  }
+
+  &__icon {
+    @include font-size(16px);
+    @include make-spacer(mr, 1);
+  }
+
+  &__subtitle {
+    @include font-size(13px);
+
+    max-width: rem(216px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__tags {
+    @include make-spacer(mb, 3);
+
+    position: relative;
+    display: none;
+
+    .tag {
+      @include font-size(10px);
+      @include make-spacer(p, 1);
+      @include make-spacer(mr, 1);
+
+      background-color: var(--bg-default);
+
+      &__count {
+       @include font-size(10px);
+       @include make-spacer(p, 1);
+
+        border: 1px solid var(--gray);
+        border-radius: 3px;
+      }
+
+      &__list {
+        @include flex(flex-start, center, row, wrap);
+        @include size(154px, auto);
+        @include make-spacer(p, 3);
+
+        position: absolute;
+        bottom: 100%;
+        background-color: var(--white);
+        border: 1px solid var(--gray);
+        border-radius: 4px;
+      }
+
+      &__item {
+        @include make-spacer(mb, 1);
+
+        &:last-child {
+          @include make-spacer(mb, 0);
+        }
+      }
+    }
+  }
+
+  &:last-child {
+    .card {
+      &__tags {
+        @include flex(flex-start, center);
+      }
+    }
+  }
+}

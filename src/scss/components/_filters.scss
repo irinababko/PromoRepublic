@@ -1,0 +1,31 @@
+.filters {
+
+  &__title {
+    @include font-size(13px);
+    @include make-spacer(mb, 0);
+    @include make-spacer(mb, 5, sm);
+    @include make-spacer(mr, 5);
+
+    display: none;
+    font-weight: var(--extra-bold);
+
+    @include media-breakpoint-up(xs) {
+      display: inline-block;
+    }
+  }
+
+  &__list {
+    @include flex(flex-start, center, row, wrap);
+    @include make-spacer(py, 5);
+    @include make-spacer(px, 4);
+    @include make-spacer(mb, 5);
+    @include make-spacer(mb, 0, md);
+
+    background-color: var(--white);
+    border-radius: rem(4px);
+
+    @include media-breakpoint-up(sm) {
+      @include flex(center, flex-start, column);
+    }
+  }
+}

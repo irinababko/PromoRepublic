@@ -1,0 +1,9 @@
+.filters__list
+  .filters__title Asset type
+  each item in filtersList
+    label.checkbox=item.label
+      input.checkbox__input(type="checkbox" checked=item.checked)
+      span.checkbox__text
+      .checkbox__icon
+        +icon(item.icon)
+
